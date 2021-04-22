@@ -1,0 +1,9 @@
+{
+  "routes": [
+
+  ],
+  "navigationFallback": {
+    "rewrite": "index.html",
+    "exclude": ["*.{js,css,png,jpg,gif,ico}"]
+  }
+}
