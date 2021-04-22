@@ -16,11 +16,9 @@
 </div>
 
 <p>@Message</p>
-<input type="text" @bind="Name" />
 <button @onclick="Invoke">Invoke</button>
 
 @code {
-    private string Name { get; set; }
     private string Message { get; set; }
     private async Task Invoke()
     {
