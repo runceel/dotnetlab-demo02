@@ -2,6 +2,19 @@
 @inject HttpClient Http
 
 <h1>Hello, world!</h1>
+
+<div>
+    <AuthorizeView>
+        <Authorized>
+            <p>Hello, @context.User.Identity.Name!</p>
+            <a href="/.auth/logout">Sign out</a>
+        </Authorized>
+        <NotAuthorized>
+            <a href="/.auth/login/aad">Sign in</a>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
 <p>@Message</p>
 <input type="text" @bind="Name" />
 <button @onclick="Invoke">Invoke</button>
@@ -11,7 +24,7 @@
     private string Message { get; set; }
     private async Task Invoke()
     {
-        var res = await Http.GetAsync($"/api/Greet?name={Name}");
+        var res = await Http.GetAsync($"/api/Greet");
         if (res.IsSuccessStatusCode)
         {
             Message = await res.Content.ReadAsStringAsync();
