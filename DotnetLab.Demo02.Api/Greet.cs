@@ -12,7 +12,7 @@ namespace DotnetLab.Demo02.Api
     public static class Greet
     {
         [FunctionName("Greet")]
-        public static async Task<IActionResult> Run(
+        public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
