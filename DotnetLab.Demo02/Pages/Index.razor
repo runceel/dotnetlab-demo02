@@ -7,10 +7,12 @@
     <AuthorizeView>
         <Authorized>
             <p>Hello, @context.User.Identity.Name!</p>
-            <a href="/.auth/logout">Sign out</a>
+            <a href="/.auth/logout">サインアウト</a>
         </Authorized>
         <NotAuthorized>
-            <a href="/.auth/login/aad">Sign in</a>
+            <a href="/.auth/login/aad">AAD でサインイン</a>
+            %nbsp;
+            <a href="/.auth/login/twitter">Twitter でサインイン</a>
         </NotAuthorized>
     </AuthorizeView>
 </div>
