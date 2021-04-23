@@ -26,8 +26,8 @@ namespace DotnetLab.Demo02
                 authenticationData.ClientPrincipal.UserRoles = authenticationData
                     .ClientPrincipal
                     .UserRoles
-                    .Where(x => string.Equals(x, "anonymous", StringComparison.InvariantCultureIgnoreCase))
-                    .ToArray();
+                    ?.Except(new string[] { "anonymous" }, StringComparer.CurrentCultureIgnoreCase);
+
                 if (!authenticationData.ClientPrincipal.UserRoles.Any())
                 {
                     // 認証されていないケース

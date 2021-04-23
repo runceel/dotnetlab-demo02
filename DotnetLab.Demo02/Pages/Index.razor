@@ -7,11 +7,18 @@
     <AuthorizeView>
         <Authorized>
             <p>Hello, @context.User.Identity.Name!</p>
+            <h3>Roles</h3>
+            <ul>
+                @foreach(var x in context.User.Claims.Where(x => x.Type == System.Security.Claims.ClaimTypes.Role))
+                {
+                    <li>@x.Value</li>
+                }
+            </ul>
             <a href="/.auth/logout">サインアウト</a>
         </Authorized>
         <NotAuthorized>
             <a href="/.auth/login/aad">AAD でサインイン</a>
-            %nbsp;
+            &nbsp;
             <a href="/.auth/login/twitter">Twitter でサインイン</a>
         </NotAuthorized>
     </AuthorizeView>
